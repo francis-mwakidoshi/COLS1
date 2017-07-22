@@ -1,9 +1,9 @@
 <?php
 $no=$_GET['no'];
 include_once($_SERVER['DOCUMENT_ROOT'].'/COLS1/dbconnect/dbconnect.php');
-$Q2=mysql_query("SELECT *FROM staff WHERE staffno='$no'");
+$Q2=mysql_query("SELECT * FROM staff WHERE staffno='$no'");
 $array=mysql_fetch_array($Q2);
-$query=mysql_query("SELECT *FROM leavedetails WHERE staffID='{$array['Id']}'")or die(mysql_error());
+$query=mysql_query("SELECT * FROM leavedetails WHERE staffID='{$array['Id']}'")or die(mysql_error());
 $row=mysql_fetch_array($query);
 
 $i=0;
@@ -117,7 +117,7 @@ if($numrows<=0){
 
 do{
 	
-$leaveR=mysql_query("SELECT * FROM leavedetails WHERE leaveId='{$row['Id']}'")or die(mysql_error());
+$leaveR=mysql_query("SELECT * FROM leavestatus WHERE staffID='{$row['Id']}'")or die(mysql_error());
 $leaveA=mysql_fetch_array($leaveR);
 $num=mysql_num_rows($leaveR);
 if($num<=0){
@@ -130,7 +130,7 @@ if($num<=0){
 }
 $i=$i+1;
 
-$leave=mysql_query("SELECT *FROM leavecategory WHERE leaveID='{$row['leaveId']}'");
+$leave=mysql_query("SELECT * FROM leavecategory WHERE leaveID='{$row['leaveId']}'");
 $Lrow=mysql_fetch_array($leave);
 echo"<tr><td>".$i."</td><td>".$row['dateApply']."</td><td>".$row['startDate']."</td><td>".$row['endDate']."</td><td>".$Lrow['category']."</td><td>".$row['leaveReason']."</td><td>".$app."</td><td>".$app1."</td></tr>";
 }while($row=mysql_fetch_array($query));
@@ -139,6 +139,7 @@ echo"<tr><td>".$i."</td><td>".$row['dateApply']."</td><td>".$row['startDate']."<
 
 </table>
 <a href="http://localhost/COLS1/leave_trend.php?no=<?php echo $no;?>"><button style="margin-top:20px;margin-right:200px;">Print Leave details</button></a>
+<a href="http://localhost/COLS1/pages/applicationform.php"><button style="margin-left:-180px; ">Back</button></a>
  </div>
     
     <div id="sidebar">

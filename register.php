@@ -158,7 +158,7 @@ ddsmoothmenu.init({
 		<td><label>Email:</label></td><td><input type="text" name="mail" value="" pattern="^[a-zA-Z][0-9A-Za-z_]+(.[0-9A-Za-z_]+)*@[0-9A-Za-z_]+(.[0-9a-zA-Z]+)*.[a-zA-Z]{2,4}$"></td>
 		</tr>
 		<tr>
-		<td><label>Telephone No:</label></td><td><input type="text" name="telno" value="" pattern="^(\+|-)?[1-9][0-9]*$"></td>
+		<td><label>Telephone No:</label></td><td><input type="text" name="telno" value=""></td>
 		</tr>
 		
 		<tr>

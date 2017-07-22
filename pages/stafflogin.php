@@ -5,7 +5,7 @@ session_start();
 @$pswd=$_POST['pswd'];
 @$submit=$_POST['submit'];
 include_once($_SERVER['DOCUMENT_ROOT'].'/COLS1/dbconnect/dbconnect.php');
-$qtable="SELECT *FROM staff WHERE  username='$uname'";
+$qtable="SELECT * FROM staff WHERE  username='$uname'";
 $query=mysql_query($qtable);
 $row=mysql_fetch_array($query);
 $msg=NULL;
@@ -36,7 +36,7 @@ if($submit){
 
               }
 }
-
+ob_flush();
 ?>
 <html>
 <head>

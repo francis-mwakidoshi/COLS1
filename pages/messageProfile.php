@@ -2,11 +2,10 @@
 session_start();
 include_once($_SERVER['DOCUMENT_ROOT'].'/COLS1/dbconnect/dbconnect.php');
 $status=mysql_query("SELECT * FROM leavestatus");
-$arr=mysql_fetch_array($status);
+//$arr=mysql_fetch_array($status);
 
-$agent=mysql_query("SELECT * FROM staff WHERE Id='{$arr['statusId']}'");
+$agent=mysql_query("SELECT * FROM staff,leavestatus WHERE staff.Id=leavestatus.staffID");
 $agentarr=mysql_fetch_array($agent);
-$phone=$agentarr['telephone'];
 
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -86,8 +85,10 @@ ddsmoothmenu.init({
   <tr><th>Name:</th><th> leaveStatus</th><th> Task</th></tr>
   <?php
   do{
-  	echo "<tr><td>".$agentarr['Fname']." ".$agentarr['Mname']." ". $agentarr['Lname']."</td><td>".$arr['HODApproval']."</td><td><a href=\"http://localhost/COLS1/pages/gateway.php?phone=$phone\">send</a></td></tr>";
-  }while($arr=mysql_fetch_array($status));
+    $phone=$agentarr['telephone'];
+
+  	echo "<tr><td>".$agentarr['Fname']." ".$agentarr['Mname']." ". $agentarr['Lname']."</td><td>".$agentarr['HODApproval']."</td><td><a href=\"http://localhost/COLS1/pages/gateway.php?phone=$phone\">send</a></td></tr>";
+  }while($agentarr=mysql_fetch_array($agent));
   ?>
   
   

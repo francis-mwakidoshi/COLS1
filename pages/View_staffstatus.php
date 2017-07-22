@@ -1,8 +1,8 @@
 <?php
 session_start();
-$id=$_SESSION['deptID'];
+//$id=$_SESSION['deptID'];
 include_once($_SERVER['DOCUMENT_ROOT'].'/COLS1/dbconnect/dbconnect.php');
-$query=mysql_query("SELECT *FROM staff WHERE departmentId='$id'");
+$query=mysql_query("SELECT * FROM staff ");
 $row=mysql_fetch_array($query);
 
 ?>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 @$date=$_POST['date'];
 @$leavetype=$_POST['leave_type'];
 @$sdate=$_POST['sdate'];
@@ -11,6 +12,8 @@ session_start();
 @$msg=NULL;
 @$error=NULL;
 @$apply=$_POST['apply'];
+
+
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/COLS1/dbconnect/dbconnect.php');
 $staffQ=mysql_query("SELECT * FROM staff WHERE Id='$userid'");
@@ -44,9 +47,10 @@ if(isset($apply)){
                    }
 					mysql_query($Qinsert) or die(mysql_error());
 					$msg.="<p style=\"color:#e79258\">Successful Application.Check soon.</p>";
-					session_destroy();
+					//session_destroy();
 						}
 }
+
 
 ?>
 <html>

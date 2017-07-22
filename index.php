@@ -40,7 +40,7 @@ ddsmoothmenu.init({
 <script type="text/JavaScript" src="js/slimbox2.js"></script> 
   
 </head>
-<body>
+<bodyz>
 
 <div id="templatemo_menu_wrapper">
     <div id="templatemo_menu" class="ddsmoothmenu">
@@ -104,8 +104,8 @@ ddsmoothmenu.init({
 <td><img src="http://localhost/COLS1/images/button.png"></img></td><td width="100px">
 <a href="http://localhost/COLS1/pages/stafflogin.php">Staff</a></td>
  <td><img src="http://localhost/COLS1/images/button.png"></img></td>
-<td width="200px" ><a href="http://localhost/COLS1/pages/personellogin.php">Personel Officer</a></td><td><img src="http://localhost/COLS1/images/button.png"></img></td>
-<td width="200px"><a href="http://localhost/COLS1/pages/HODlogin.php">Head of Department</a></td>
+<td width="200px" ><a href="http://localhost/COLS1/pages/HODlogin.php">Head of Department</a></td><td><img src="http://localhost/COLS1/images/button.png"></img></td>
+<td width="200px"><a href="http://localhost/COLS1/pages/personellogin.php">Personel Officer</a></td>
 </tr>
 </table>
 

@@ -114,18 +114,18 @@ $decline="unchecked";
 	$leaveid=$result['Id'];
 	
 		if($approvalstatus=="declined"){
-		$insertS="INSERT INTO leavestatus(POApproval) VALUES('$approvalstatus')";
+		$insertS="INSERT INTO leavestatus(staffID,HODApproval) VALUES('$id','$approvalstatus')";
 		mysql_query($insertS);
 			$decline="declined";
 			$msg.="<p style=\"color:#e79258\">Application declined</p>";
 			
 		}elseif($approvalstatus=="approved"){
-		$insertS="INSERT INTO leavestatus(POApproval) VALUES('$approvalstatus')";
+		$insertS="INSERT INTO leavestatus(staffID,HODApproval) VALUES('$id','$approvalstatus')";
 		mysql_query($insertS);
 			$approve="approved";
 			$msg.="<p style=\"color:#e79258\">Application Approved</p>";
 		}else{
-		$insertS="INSERT INTO leavestatus(POApproval) VALUES('$approvalstatus')";
+		$insertS="INSERT INTO leavestatus(staffID,HODApproval) VALUES('$id','$approvalstatus')";
 		mysql_query($insertS);
 			$msg.="<p style=\"color:#e79258\">Application pending approval</p>";
 		}
@@ -175,9 +175,6 @@ $decline="unchecked";
 	
 	<tr height="50px"></tr>
 	
-	<tr>
-	<td>Departmental Stamp/Signature:</td><td>..............................</td>
-	</tr>
 	</table>
 	
 	</fieldset>
@@ -185,7 +182,11 @@ $decline="unchecked";
 	<legend>Submission</legend>
 	<table>
 	<tr>
-	<td><input type="submit" name="submit" value="Submit the Approval Status"></td><td><input type="reset" name="reset" value="Reset"></td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<td><input type="submit" name="submit" value="Submit the Approval Status"></td><td><input type="reset" name="reset" value="Reset">
+	</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</tr>
+	<tr>
+	<td><a href="http://localhost/COLS1/pages/information.php">Back</a></td>
 	</tr>
 	<!--<tr> 
 	<td></td><td><img src="http://localhost/COLS1/images/print-button1.png"></img></td><td><a href="http://localhost/COLS1/pdf.php">Print the leave sheet </a></td>
@@ -193,11 +194,12 @@ $decline="unchecked";
 	</table>
 	</fieldset>
 	</form>
+
 	<?php
 	}else{
 	?>
-	<a href="information.php"><button style="margin-left:-100px;">Back</button></a><br><br>
 	<a href="PO_notification.php?status=<?php echo $_SESSION['staffID'];?>"><button style="margin-left:-100px;">Notify P.O</button></a>
+
 	<?php
 		echo " The leave application has been ".$status_value['HODApproval'];
 		}

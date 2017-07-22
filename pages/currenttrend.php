@@ -92,7 +92,7 @@ ddsmoothmenu.init({
 	@$month=$_POST['month'];
    @$go=$_POST['go'];
    if(isset($go)){
-   	if(@$month==jan){
+   	if($month=="jan"){
 		$q=mysql_query("select *from leavedetails where startDate like '%-01-%'");
 		$arr=mysql_fetch_array($q);
 		do{
@@ -105,7 +105,7 @@ ddsmoothmenu.init({
 			}
 		}while($arr=mysql_fetch_array($q));
 	}
-		if($month==feb){
+		if($month=='feb'){
 		$q=mysql_query("select *from leavedetails where startDate like '%-02-%'");
 		$arr=mysql_fetch_array($q);
 		do{
@@ -118,7 +118,7 @@ ddsmoothmenu.init({
 			}
 		}while($arr=mysql_fetch_array($q));
 	}
-		if($month==march){
+		if($month=='march'){
 		$q=mysql_query("select *from leavedetails where startDate like '%-03-%'");
 		$arr=mysql_fetch_array($q);
 		do{
@@ -131,7 +131,7 @@ ddsmoothmenu.init({
 			}
 		}while($arr=mysql_fetch_array($q));
 	}
-		if($month==april){
+		if($month=='april'){
 		$q=mysql_query("select *from leavedetails where startDate like '%-04-%'");
 		$arr=mysql_fetch_array($q);
 		do{
@@ -143,7 +143,7 @@ ddsmoothmenu.init({
 				echo "Nobody on leave this month";
 			}
 		}while($arr=mysql_fetch_array($q));
-	}	if($month==may){
+	}	if($month=='may'){
 		$q=mysql_query("select *from leavedetails where startDate like '%-05-%'");
 		$arr=mysql_fetch_array($q);
 		do{
@@ -155,8 +155,8 @@ ddsmoothmenu.init({
 				echo "Nobody on leave this month";
 			}
 		}while($arr=mysql_fetch_array($q));
-	}	if($month==june){
-		$q=mysql_query("select *from leavedetails where startDate like '%-06-%'");
+	}	if($month=='june'){
+		$q=mysql_query("SELECT * from leavedetails where startDate like '%-06-%'");
 		$arr=mysql_fetch_array($q);
 		do{
 			$detail=mysql_query("select *from staff where Id='{$arr['staffID']}'");
@@ -167,8 +167,8 @@ ddsmoothmenu.init({
 				echo "Nobody on leave this month";
 			}
 		}while($arr=mysql_fetch_array($q));
-	}	if($month==july){
-		$q=mysql_query("select *from leavedetails where startDate like '%-07-%'");
+	}	if($month=='july'){
+		$q=mysql_query("select * from leavedetails where startDate like '%-07-%'");
 		$arr=mysql_fetch_array($q);
 		do{
 			$detail=mysql_query("select *from staff where Id='{$arr['staffID']}'");
@@ -179,8 +179,8 @@ ddsmoothmenu.init({
 				echo "Nobody on leave this month";
 			}
 		}while($arr=mysql_fetch_array($q));
-	}	if($month==aug){
-		$q=mysql_query("select *from leavedetails where startDate like '%-08-%'");
+	}	if($month=='aug'){
+		$q=mysql_query("select * from leavedetails where startDate like '%-08-%'");
 		$arr=mysql_fetch_array($q);
 		do{
 			$detail=mysql_query("select *from staff where Id='{$arr['staffID']}'");
@@ -191,7 +191,7 @@ ddsmoothmenu.init({
 				echo "Nobody on leave this month";
 			}
 		}while($arr=mysql_fetch_array($q));
-	}	if($month==sept){
+	}	if($month=='sept'){
 		$q=mysql_query("select *from leavedetails where startDate like '%-09-%'");
 		$arr=mysql_fetch_array($q);
 		do{
@@ -203,7 +203,7 @@ ddsmoothmenu.init({
 				echo "Nobody on leave this month";
 			}
 		}while($arr=mysql_fetch_array($q));
-	}	if($month==oct){
+	}	if($month=='oct'){
 		$q=mysql_query("select *from leavedetails where startDate like '%-10-%'");
 		$arr=mysql_fetch_array($q);
 		do{
@@ -215,11 +215,11 @@ ddsmoothmenu.init({
 				echo "Nobody on leave this month";
 			}
 		}while($arr=mysql_fetch_array($q));
-	}	if($month==nov){
-		$q=mysql_query("select *from leavedetails where startDate like '%-11-%'");
+	}	if($month=='nov'){
+		$q=mysql_query("select * from leavedetails where startDate like '%-11-%'");
 		$arr=mysql_fetch_array($q);
 		do{
-			$detail=mysql_query("select *from staff where Id='{$arr['staffID']}'");
+			$detail=mysql_query("select * from staff where Id='{$arr['staffID']}'");
 			$row=mysql_fetch_array($detail);
 			if($row['departmentId']==$id){
 				echo "<table border='1'><th>Staff No</th><th>Start Date</th><th>End Date</th><tr><td>".$row['staffno']."</td><td>".$arr['startDate']."</td><td>".$arr['endDate']."</td></tr></table>";
@@ -227,11 +227,11 @@ ddsmoothmenu.init({
 				echo "Nobody on leave this month";
 			}
 		}while($arr=mysql_fetch_array($q));
-	}	if($month==dec){
-		$q=mysql_query("select *from leavedetails where startDate like '%-12-%'");
+	}	if($month=='dec'){
+		$q=mysql_query("SELECT * from leavedetails where startDate like '%-12-%'");
 		$arr=mysql_fetch_array($q);
 		do{
-			$detail=mysql_query("select *from staff where Id='{$arr['staffID']}'");
+			$detail=mysql_query("SELECT * from staff where Id='{$arr['staffID']}'");
 			$row=mysql_fetch_array($detail);
 			if($row['departmentId']==$id){
 				echo "<table border='1'><th>Staff No</th><th>Start Date</th><th>End Date</th><tr><td>".$row['staffno']."</td><td>".$arr['startDate']."</td><td>".$arr['endDate']."</td></tr></table>";

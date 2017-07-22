@@ -80,7 +80,7 @@ ddsmoothmenu.init({
     <div id="content">
 	
 <?php
-$query="SELECT *FROM leavedetails";
+$query="SELECT * FROM leavedetails";
 $result=mysql_query($query);
 $res=mysql_fetch_assoc($result);
 $msg=NULL;
@@ -91,16 +91,16 @@ $msg=NULL;
 echo "<table border=1>";
 echo "<th>Name</th><th>Staff No:</th><th>Department</th><th>View Leave</th>";
 do{
-$staff=mysql_query("SELECT *FROM staff WHERE Id='{$res['staffID']}'");
+$staff=mysql_query("SELECT * FROM staff WHERE Id='{$res['staffID']}'");
 $staffrow=mysql_fetch_array($staff);
-$Qdept=mysql_query("SELECT *FROM departments WHERE deptID='{$staffrow['departmentId']}'");
+$Qdept=mysql_query("SELECT * FROM departments WHERE deptID='{$staffrow['departmentId']}'");
 $deptrow=mysql_fetch_array($Qdept);
-if($deptrow['deptID']==1){
+
 	echo "<tr>";
 echo "<td>".$staffrow['Fname']."</td><td>".$staffrow['staffno']."</td><td>".$deptrow['deptName']."</td>
 	 <td><a href=HODcheck.php?id=".$res['staffID']."&lid=".$res['Id'].">Check</a>&nbsp;&nbsp;&nbsp;</td>";
 echo "</tr>";
- }
+ 
  
 
 }while($res=mysql_fetch_assoc($result));
@@ -118,9 +118,6 @@ echo "</table>";
 
 <div id="templatemo_footer_wrapper">
 	<div id="templatemo_footer">
-    	<div class="col_3">
-        	<a href="http://localhost/COLS1/pages/HODlogin.php"><button >Back</button></a>
-        </div>
         <div class="col_3">
         	<a href="http://localhost/COLS1/pages/View_staffstatus.php"><button>View staff and History</button></a>
            
